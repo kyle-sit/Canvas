@@ -70,7 +70,7 @@ class CanvasViewController: UIViewController {
     }
     
     
-    //actiona outlet for any of the gesture recognizers on the faces
+    //action outlet for any of the gesture recognizers on the faces
     @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
         //translation parameter
         let translation = sender.translation(in: view)
@@ -88,13 +88,37 @@ class CanvasViewController: UIViewController {
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
         }
         else if sender.state == .changed {
+            //continually set new center as it is being moved
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
         }
         else if sender.state == .ended {
-            
+            //manually create pan gesture recognizer for the new face
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFaceOnCanvas(_:)))
+            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+            newlyCreatedFace.isUserInteractionEnabled = true
         }
     }
     
+    
+    //action function for the new faces on the canvas
+    @IBAction func didPanFaceOnCanvas(_ sender: UIPanGestureRecognizer) {
+        //translation parameter
+        let translation = sender.translation(in: view)
+        
+        //conditional for states of the view
+        if sender.state == .began {
+            //reset instance var to be used on current face
+            newlyCreatedFace = sender.view as! UIImageView
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+        }
+        else if sender.state == .changed {
+            //continually set new center as it is being moved
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+        }
+        else if sender.state == .ended {
+
+        }
+    }
     
     
     /*
