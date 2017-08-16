@@ -151,6 +151,16 @@ class CanvasViewController: UIViewController {
     }
     
     
+    //action function for scaling the new faces on the canvas
+    @IBAction func didPinch(_ sender: UIPinchGestureRecognizer) {
+    }
+    
+    
+    //action function for rotating the new faces on the canvas
+    @IBAction func didRotate(_ sender: UIRotationGestureRecognizer) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 
