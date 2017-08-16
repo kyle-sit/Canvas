@@ -13,11 +13,15 @@ class CanvasViewController: UIViewController {
     //outlets
     @IBOutlet weak var trayView: UIView!
 
-    //instance vars
+    //instance vars for tray panning
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
     var trayDown: CGPoint!
+    
+    //instance vars for face panning
+    var newlyCreatedFace: UIImageView!
+    var newlyCreatedFaceOriginalCenter: CGPoint!
     
     
     //viewDidLoad
@@ -44,21 +48,55 @@ class CanvasViewController: UIViewController {
         let translation = sender.translation(in: view)
         let velocity = sender.velocity(in: view)
         
+        //conditional for states of the view
         if sender.state == .began {
+            //if it is first touched, set original center to its current state
             trayOriginalCenter = trayView.center
-        } else if sender.state == .changed {
+        }
+        else if sender.state == .changed {
+            //if the tray is being moved, constantly set its center
             trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
-        } else if sender.state == .ended {
+        }
+        else if sender.state == .ended {
+            //positive velocity indicates moving down
             if velocity.y > 0 {
                 trayView.center = trayDown
             }
+            //else it is moving up
             else {
                 trayView.center = trayUp
             }
         }
     }
     
-
+    
+    //actiona outlet for any of the gesture recognizers on the faces
+    @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
+        //translation parameter
+        let translation = sender.translation(in: view)
+        
+        //conditional for states of sender
+        if sender.state == .began {
+            //store senders image and place it on the main view (have to offset coordinates)
+            let imageView = sender.view as! UIImageView
+            newlyCreatedFace = UIImageView(image: imageView.image)
+            view.addSubview(newlyCreatedFace)
+            newlyCreatedFace.center = imageView.center
+            newlyCreatedFace.center.y += trayView.frame.origin.y
+            
+            //set original center
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+        }
+        else if sender.state == .changed {
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+        }
+        else if sender.state == .ended {
+            
+        }
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
