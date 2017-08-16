@@ -21,44 +21,61 @@
                                 <rect key="frame" x="0.0" y="418" width="375" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="dead" id="9kv-gJ-lK1">
-                                        <rect key="frame" x="29" y="31" width="60" height="60"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="dead" id="9kv-gJ-lK1">
+                                        <rect key="frame" x="29" y="31" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="excited" id="ScV-hQ-JE5">
-                                        <rect key="frame" x="157" y="31" width="60" height="60"/>
+                                        <rect key="frame" x="157" y="31" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="happy" id="7e0-oV-w9o">
-                                        <rect key="frame" x="287" y="31" width="60" height="60"/>
+                                        <rect key="frame" x="287" y="31" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="sad" id="Grj-yk-a2N">
-                                        <rect key="frame" x="29" y="144" width="60" height="60"/>
+                                        <rect key="frame" x="29" y="144" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="tongue" id="btG-bx-PUF">
-                                        <rect key="frame" x="157" y="144" width="60" height="60"/>
+                                        <rect key="frame" x="157" y="144" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="wink" id="4j5-TS-kUx">
-                                        <rect key="frame" x="287" y="144" width="60" height="60"/>
+                                        <rect key="frame" x="287" y="144" width="60" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="down_arrow" id="XAn-mz-Hbw">
+                                        <rect key="frame" x="163" y="8" width="48" height="32"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Rfc-SI-rDM" appends="YES" id="Rcf-CB-kcA"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="trayView" destination="XF0-je-bew" id="Qbp-be-CAr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Rfc-SI-rDM">
+                    <connections>
+                        <action selector="didPanTray:" destination="BYZ-38-t0r" id="sFZ-pO-UdN"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="85.5" y="154.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="dead" width="60" height="60"/>
+        <image name="down_arrow" width="20" height="14"/>
         <image name="excited" width="60" height="60"/>
         <image name="happy" width="60" height="60"/>
         <image name="sad" width="60" height="60"/>
