@@ -60,11 +60,19 @@ class CanvasViewController: UIViewController {
         else if sender.state == .ended {
             //positive velocity indicates moving down
             if velocity.y > 0 {
-                trayView.center = trayDown
+                //spring animation for tray
+                UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                               animations: { () -> Void in
+                                self.trayView.center = self.trayDown
+                }, completion: nil)
             }
             //else it is moving up
             else {
-                trayView.center = trayUp
+                //spring animation for tray
+                UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                               animations: { () -> Void in
+                                self.trayView.center = self.trayUp
+                }, completion: nil)
             }
         }
     }
@@ -86,6 +94,12 @@ class CanvasViewController: UIViewController {
             
             //set original center
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            
+            //spring and scale the face
+            UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                           animations: { () -> Void in
+                            self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            }, completion: nil)
         }
         else if sender.state == .changed {
             //continually set new center as it is being moved
@@ -96,6 +110,12 @@ class CanvasViewController: UIViewController {
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFaceOnCanvas(_:)))
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
             newlyCreatedFace.isUserInteractionEnabled = true
+            
+            //spring and scale back to normal the face for drop effect
+            UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                           animations: { () -> Void in
+                            self.newlyCreatedFace.transform = self.newlyCreatedFace.transform.scaledBy(x: 0.5, y: 0.5)
+            }, completion: nil)
         }
     }
     
@@ -110,13 +130,23 @@ class CanvasViewController: UIViewController {
             //reset instance var to be used on current face
             newlyCreatedFace = sender.view as! UIImageView
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            
+            //spring and scale the face
+            UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                           animations: { () -> Void in
+                            self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            }, completion: nil)
         }
         else if sender.state == .changed {
             //continually set new center as it is being moved
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
         }
         else if sender.state == .ended {
-
+            //spring and scale back to normal the face for drop effect
+            UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                           animations: { () -> Void in
+                            self.newlyCreatedFace.transform = self.newlyCreatedFace.transform.scaledBy(x: 0.5, y: 0.5)
+            }, completion: nil)
         }
     }
     
