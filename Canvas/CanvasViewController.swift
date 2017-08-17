@@ -106,9 +106,15 @@ class CanvasViewController: UIViewController {
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
         }
         else if sender.state == .ended {
-            //manually create pan gesture recognizer for the new face
+            //manually create the gesture recognizers for the new face
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFaceOnCanvas(_:)))
+            let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(_:)))
+            let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(_:)))
+            
+            //add the gesture recognizers to the new face
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+            newlyCreatedFace.addGestureRecognizer(pinchGestureRecognizer)
+            newlyCreatedFace.addGestureRecognizer(rotationGestureRecognizer)
             newlyCreatedFace.isUserInteractionEnabled = true
             
             //spring and scale back to normal the face for drop effect
@@ -153,11 +159,19 @@ class CanvasViewController: UIViewController {
     
     //action function for scaling the new faces on the canvas
     @IBAction func didPinch(_ sender: UIPinchGestureRecognizer) {
+        let scale = sender.scale
+        let imageView = sender.view as! UIImageView
+        imageView.transform = imageView.transform.scaledBy(x: scale, y: scale)
+        sender.scale = 1
     }
     
     
     //action function for rotating the new faces on the canvas
     @IBAction func didRotate(_ sender: UIRotationGestureRecognizer) {
+        let rotation = sender.rotation
+        let imageView = sender.view as! UIImageView
+        imageView.transform = imageView.transform.rotated(by: rotation)
+        sender.rotation = 0
     }
     
     
