@@ -110,11 +110,14 @@ class CanvasViewController: UIViewController {
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFaceOnCanvas(_:)))
             let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(_:)))
             let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(_:)))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(deleteFace(_:)))
+            tapGestureRecognizer.numberOfTapsRequired = 2
             
             //add the gesture recognizers to the new face
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
             newlyCreatedFace.addGestureRecognizer(pinchGestureRecognizer)
             newlyCreatedFace.addGestureRecognizer(rotationGestureRecognizer)
+            newlyCreatedFace.addGestureRecognizer(tapGestureRecognizer)
             newlyCreatedFace.isUserInteractionEnabled = true
             
             //spring and scale back to normal the face for drop effect
@@ -161,6 +164,7 @@ class CanvasViewController: UIViewController {
     @IBAction func didPinch(_ sender: UIPinchGestureRecognizer) {
         let scale = sender.scale
         let imageView = sender.view as! UIImageView
+        //modify the scale component of the imageview and then set it back to normal
         imageView.transform = imageView.transform.scaledBy(x: scale, y: scale)
         sender.scale = 1
     }
@@ -170,8 +174,15 @@ class CanvasViewController: UIViewController {
     @IBAction func didRotate(_ sender: UIRotationGestureRecognizer) {
         let rotation = sender.rotation
         let imageView = sender.view as! UIImageView
+        //modify the rotation component of the imageview and then set it back to normal
         imageView.transform = imageView.transform.rotated(by: rotation)
         sender.rotation = 0
+    }
+    
+    
+    //action function for deleting the new faces on the canvas
+    @IBAction func deleteFace(_ sender: UITapGestureRecognizer) {
+        newlyCreatedFace.removeFromSuperview()
     }
     
     
