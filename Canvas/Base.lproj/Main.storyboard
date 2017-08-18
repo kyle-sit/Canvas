@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="17o-RP-aVu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="17o-RP-aVu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Intro View Controller-->
+        <!--Home-->
         <scene sceneID="ZSE-Fj-5TE">
             <objects>
                 <viewController storyboardIdentifier="startSegue" id="Md4-le-Xqy" customClass="IntroViewController" customModule="Canvas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gCM-cj-8k9"/>
+                        <viewControllerLayoutGuide type="bottom" id="pNr-TZ-ZgC"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6cV-0c-Y5p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Canvas!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oxu-vF-j7O">
-                                <rect key="frame" x="45" y="41" width="281" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Canvas!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxu-vF-j7O">
+                                <rect key="frame" x="45" y="71" width="281" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Q9p-0B-rz3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Drag and drop emoticons onto the canvas to create your art!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cV1-st-0xR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag and drop emoticons onto the canvas to create your art!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV1-st-0xR">
                                 <rect key="frame" x="-1" y="228" width="373" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="E73-wI-z0w"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="paintbrush" id="k8s-s9-hao">
-                                <rect key="frame" x="105" y="88" width="164" height="144"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="paintbrush" translatesAutoresizingMaskIntoConstraints="NO" id="k8s-s9-hao">
+                                <rect key="frame" x="105" y="88" width="164" height="155"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1eB-Xy-ybd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eB-Xy-ybd">
                                 <rect key="frame" x="105" y="496" width="164" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.75200273773379123" green="0.72292166456084928" blue="0.76647506476683935" alpha="0.62593529929577463" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="OGa-fw-li3"/>
+                                </constraints>
                                 <state key="normal" title="Get Started">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -46,31 +56,59 @@
                                     <segue destination="BYZ-38-t0r" kind="push" id="fNq-5S-llo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1. Select face from tray and drag to blank      canvas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XuW-C8-O5D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Select face from tray and drag to blank      canvas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuW-C8-O5D">
                                 <rect key="frame" x="16" y="323" width="343" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Bed-tZ-UOn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2. Scale the faces or rotate them how you like" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BMj-Hd-BEh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Scale the faces or rotate them how you like" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMj-Hd-BEh">
                                 <rect key="frame" x="16" y="368" width="343" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="KPt-BT-reP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3. If you want to delete a face, drag it to select it and then double tap!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eBf-TP-773">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. If you want to delete a face, drag it to select it and then double tap!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBf-TP-773">
                                 <rect key="frame" x="16" y="407" width="343" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XuW-C8-O5D" firstAttribute="top" secondItem="k8s-s9-hao" secondAttribute="bottom" constant="80" id="04V-2Y-ehu"/>
+                            <constraint firstItem="BMj-Hd-BEh" firstAttribute="top" secondItem="cV1-st-0xR" secondAttribute="bottom" constant="63" id="68W-yZ-aJU"/>
+                            <constraint firstItem="k8s-s9-hao" firstAttribute="leading" secondItem="1eB-Xy-ybd" secondAttribute="leading" id="AI0-g0-j74"/>
+                            <constraint firstItem="cV1-st-0xR" firstAttribute="leading" secondItem="6cV-0c-Y5p" secondAttribute="leadingMargin" constant="-17" id="BMQ-WY-a3R"/>
+                            <constraint firstItem="eBf-TP-773" firstAttribute="top" secondItem="XuW-C8-O5D" secondAttribute="bottom" constant="36" id="GBI-h4-d6Y"/>
+                            <constraint firstItem="oxu-vF-j7O" firstAttribute="centerX" secondItem="cV1-st-0xR" secondAttribute="centerX" id="IAQ-x7-guh"/>
+                            <constraint firstItem="BMj-Hd-BEh" firstAttribute="leading" secondItem="eBf-TP-773" secondAttribute="leading" id="Org-q1-FtM"/>
+                            <constraint firstItem="k8s-s9-hao" firstAttribute="trailing" secondItem="1eB-Xy-ybd" secondAttribute="trailing" id="VD4-fu-2I1"/>
+                            <constraint firstItem="XuW-C8-O5D" firstAttribute="leading" secondItem="6cV-0c-Y5p" secondAttribute="leadingMargin" id="XLX-XU-D3S"/>
+                            <constraint firstItem="eBf-TP-773" firstAttribute="centerX" secondItem="1eB-Xy-ybd" secondAttribute="centerX" id="XpR-BX-PvC"/>
+                            <constraint firstItem="k8s-s9-hao" firstAttribute="leading" secondItem="6cV-0c-Y5p" secondAttribute="leadingMargin" constant="89" id="YCW-FZ-yqn"/>
+                            <constraint firstItem="BMj-Hd-BEh" firstAttribute="trailing" secondItem="eBf-TP-773" secondAttribute="trailing" id="YW2-8c-2ra"/>
+                            <constraint firstItem="XuW-C8-O5D" firstAttribute="trailing" secondItem="BMj-Hd-BEh" secondAttribute="trailing" id="Ycq-M9-HdT"/>
+                            <constraint firstItem="oxu-vF-j7O" firstAttribute="top" secondItem="gCM-cj-8k9" secondAttribute="bottom" constant="7" id="aT7-6y-N5w"/>
+                            <constraint firstItem="XuW-C8-O5D" firstAttribute="leading" secondItem="BMj-Hd-BEh" secondAttribute="leading" id="bJY-Xn-G6K"/>
+                            <constraint firstItem="XuW-C8-O5D" firstAttribute="top" secondItem="cV1-st-0xR" secondAttribute="bottom" constant="18" id="g5m-yX-Ic6"/>
+                            <constraint firstItem="oxu-vF-j7O" firstAttribute="leading" secondItem="6cV-0c-Y5p" secondAttribute="leadingMargin" constant="29" id="mBe-6O-Von"/>
+                            <constraint firstItem="k8s-s9-hao" firstAttribute="top" secondItem="gCM-cj-8k9" secondAttribute="bottom" constant="24" id="nvN-kx-DmZ"/>
+                            <constraint firstItem="1eB-Xy-ybd" firstAttribute="top" secondItem="eBf-TP-773" secondAttribute="bottom" constant="26" id="oFr-ym-3jC"/>
+                            <constraint firstItem="1eB-Xy-ybd" firstAttribute="top" secondItem="BMj-Hd-BEh" secondAttribute="bottom" constant="80" id="oSj-LY-kzd"/>
+                            <constraint firstItem="XuW-C8-O5D" firstAttribute="trailing" secondItem="6cV-0c-Y5p" secondAttribute="trailingMargin" id="q3N-Xe-wBK"/>
+                            <constraint firstItem="pNr-TZ-ZgC" firstAttribute="top" secondItem="1eB-Xy-ybd" secondAttribute="bottom" constant="78" id="uoD-br-zvu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cV1-st-0xR" secondAttribute="trailing" constant="-13" id="xGc-ET-yfK"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aYL-ps-f7O"/>
+                    <navigationItem key="navigationItem" title="Home" id="aYL-ps-f7O"/>
                     <connections>
                         <outlet property="startButton" destination="1eB-Xy-ybd" id="3y7-5e-aiC"/>
                     </connections>
@@ -83,15 +121,19 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CanvasViewController" customModule="Canvas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Zf-Cj-R0x"/>
+                        <viewControllerLayoutGuide type="bottom" id="GAd-Do-3ie"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" id="XF0-je-bew">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XF0-je-bew">
                                 <rect key="frame" x="0.0" y="418" width="375" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="dead" id="9kv-gJ-lK1">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="9kv-gJ-lK1">
                                         <rect key="frame" x="29" y="31" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <gestureRecognizers/>
@@ -99,7 +141,7 @@
                                             <outletCollection property="gestureRecognizers" destination="80y-Ws-Z0o" appends="YES" id="dOo-nk-CmB"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="excited" id="ScV-hQ-JE5">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="excited" translatesAutoresizingMaskIntoConstraints="NO" id="ScV-hQ-JE5">
                                         <rect key="frame" x="157" y="31" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <gestureRecognizers/>
@@ -107,7 +149,7 @@
                                             <outletCollection property="gestureRecognizers" destination="GaS-Hr-XWt" appends="YES" id="VLe-3M-nj4"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="happy" id="7e0-oV-w9o">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="7e0-oV-w9o">
                                         <rect key="frame" x="287" y="31" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <gestureRecognizers/>
@@ -115,7 +157,7 @@
                                             <outletCollection property="gestureRecognizers" destination="brI-IP-VIs" appends="YES" id="Kwi-xW-kMo"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="sad" id="Grj-yk-a2N">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="Grj-yk-a2N">
                                         <rect key="frame" x="29" y="144" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <gestureRecognizers/>
@@ -123,7 +165,7 @@
                                             <outletCollection property="gestureRecognizers" destination="FTa-Pi-pZQ" appends="YES" id="qrJ-LE-sIh"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="tongue" id="btG-bx-PUF">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="tongue" translatesAutoresizingMaskIntoConstraints="NO" id="btG-bx-PUF">
                                         <rect key="frame" x="157" y="144" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <gestureRecognizers/>
@@ -131,7 +173,7 @@
                                             <outletCollection property="gestureRecognizers" destination="Af0-4C-39P" appends="YES" id="byV-Lj-nfz"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="wink" id="4j5-TS-kUx">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wink" translatesAutoresizingMaskIntoConstraints="NO" id="4j5-TS-kUx">
                                         <rect key="frame" x="287" y="144" width="60" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <gestureRecognizers/>
@@ -139,7 +181,7 @@
                                             <outletCollection property="gestureRecognizers" destination="TbW-yc-qmQ" appends="YES" id="l8H-Im-q21"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="down_arrow" id="XAn-mz-Hbw">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="XAn-mz-Hbw">
                                         <rect key="frame" x="163" y="8" width="48" height="32"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
